@@ -3,7 +3,7 @@ import time
 
 class Game:
 
-    '''the tic tac toe game using the minimax algorithm'''
+    '''the minimax algorithm'''
 
     def __init__(self,gui):
         self.player_turn = None
