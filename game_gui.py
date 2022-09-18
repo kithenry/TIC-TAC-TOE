@@ -43,7 +43,7 @@ class App:
         self.row, self.col = None, None
         self.player_x = player_x
         self.player_o = player_o
-        self.board_container = Column(width=600, height=600,spacing =40)
+        self.board_container = Column(width=600, height=600, spacing=40)
         self.main_container = Container(width=580, height=580)
         self.main_column = Column()
         self.row1, self.row2, self.row3 = Row(), Row(), Row()
@@ -85,13 +85,32 @@ class App:
                 2: self.row3_containers[2],
             },
         }
-        gamestats = [Text(f"HUMAN: {self.xwins}",font_family='Monospace',size=12), Text(f"DRAW: {self.numdraws}",font_family='Monospace',size=12), Text(f"AI: {self.owins}",font_family='Monospace',size=12)]
-        #for stat in gamestats:
+        gamestats = [
+            Text(f"HUMAN: {self.xwins}", font_family="Monospace", size=12),
+            Text(f"DRAW: {self.numdraws}", font_family="Monospace", size=12),
+            Text(f"AI: {self.owins}", font_family="Monospace", size=12),
+        ]
+        # for stat in gamestats:
         #    stat.style = ButtonStyle(shape={"":RoundedRectangleBorder(radius=4)})
-        self.human_win_container = Container(content=gamestats[0],expand=True,alignment=alignment.center)
-        self.draw_container = Container(content=gamestats[1],expand=True,alignment=alignment.center)
-        self.ai_win_container = Container(content=gamestats[2],expand=True,alignment=alignment.center)
-        self.win_stats_row = Row(spacing=36, alignment='center',controls=[self.human_win_container,self.draw_container,self.ai_win_container],vertical_alignment='center')
+        self.human_win_container = Container(
+            content=gamestats[0], expand=True, alignment=alignment.center
+        )
+        self.draw_container = Container(
+            content=gamestats[1], expand=True, alignment=alignment.center
+        )
+        self.ai_win_container = Container(
+            content=gamestats[2], expand=True, alignment=alignment.center
+        )
+        self.win_stats_row = Row(
+            spacing=36,
+            alignment="center",
+            controls=[
+                self.human_win_container,
+                self.draw_container,
+                self.ai_win_container,
+            ],
+            vertical_alignment="center",
+        )
 
         self.start_button = Container(
             content=OutlinedButton(
@@ -125,7 +144,11 @@ class App:
         self.main_container.border_radius = 4
         self.main_container.alignment = alignment.Alignment(0, 0)
         self.main_container.horizontal_alignment = "center"
-        self.board_container.controls = [self.main_container, self.win_stats_row, self.start_button]
+        self.board_container.controls = [
+            self.main_container,
+            self.win_stats_row,
+            self.start_button,
+        ]
         self.board_container.bgcolor = "#475c6f"
         self.board_container.alignment = "center"
         self.board_container.horizontal_alignment = "center"
@@ -154,21 +177,19 @@ class App:
         elif self.game_ended:
             self.new_game()
 
-    def update_winstats(self,state):
-        if state == '.':
-            self.numdraws += 1 
-            self.win_stats_row.controls[1].content.value = f'DRAW: {self.numdraws}'
+    def update_winstats(self, state):
+        if state == ".":
+            self.numdraws += 1
+            self.win_stats_row.controls[1].content.value = f"DRAW: {self.numdraws}"
             self.win_stats_row.controls[1].content.update()
-        elif state == 'X':
+        elif state == "X":
             self.xwins += 1
-            self.win_stats_row.controls[0].content.value = f'HUMAN: {self.xwins}'
+            self.win_stats_row.controls[0].content.value = f"HUMAN: {self.xwins}"
             self.win_stats_row.controls[0].update()
-        elif state == 'O':
+        elif state == "O":
             self.owins += 1
-            self.win_stats_row.controls[2].content.value = f'AI: {self.owins}'
+            self.win_stats_row.controls[2].content.value = f"AI: {self.owins}"
             self.win_stats_row.controls[2].update()
-
-    
 
     def update_startbutton(self, new_text):
         self.start_button.content.text = new_text
