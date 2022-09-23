@@ -8,9 +8,6 @@ from flet import (
     Container,
     padding,
     margin,
-    ElevatedButton,
-    Image,
-    Card,
     OutlinedButton,
     ButtonStyle,
 )
