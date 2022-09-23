@@ -128,15 +128,12 @@ class Game:
         result = self.game_ended()
         if result:
             if result == "X":
-                # print('X won the game')
                 self.gui.update_startbutton("X won the game")
                 self.gui.update_winstats("X")
             elif result == "O":
-                # print('O won the game')
                 self.gui.update_startbutton("O won the game")
                 self.gui.update_winstats("O")
             elif result == ".":
-                # print('It is a TIE')
                 self.gui.update_startbutton("It is a TIE")
                 self.gui.update_winstats(".")
             self.gui.game_ended = True
