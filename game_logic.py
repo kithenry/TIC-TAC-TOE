@@ -31,7 +31,7 @@ class Game:
 
         # horizontal check
         for i in range(3):
-            row = set([c for c in self.game_state[i]])
+            row = set(list(self.game_state[i]))
             if len(row) == 1 and list(row)[0] != ".":
                 return list(row)[0]
 
