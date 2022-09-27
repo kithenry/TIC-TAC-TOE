@@ -31,7 +31,7 @@ class Game:
 
         # horizontal check
         for i in range(3):
-            row = set([c for c in self.game_state[i]])
+            row = set(list(self.game_state[i]))
             if len(row) == 1 and list(row)[0] != ".":
                 return list(row)[0]
 
@@ -128,15 +128,12 @@ class Game:
         result = self.game_ended()
         if result:
             if result == "X":
-                # print('X won the game')
                 self.gui.update_startbutton("X won the game")
                 self.gui.update_winstats("X")
             elif result == "O":
-                # print('O won the game')
                 self.gui.update_startbutton("O won the game")
                 self.gui.update_winstats("O")
             elif result == ".":
-                # print('It is a TIE')
                 self.gui.update_startbutton("It is a TIE")
                 self.gui.update_winstats(".")
             self.gui.game_ended = True

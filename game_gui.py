@@ -8,9 +8,6 @@ from flet import (
     Container,
     padding,
     margin,
-    ElevatedButton,
-    Image,
-    Card,
     OutlinedButton,
     ButtonStyle,
 )
@@ -90,8 +87,6 @@ class App:
             Text(f"DRAW: {self.numdraws}", font_family="Monospace", size=20),
             Text(f"AI: {self.owins}", font_family="Monospace", size=20),
         ]
-        # for stat in gamestats:
-        #    stat.style = ButtonStyle(shape={"":RoundedRectangleBorder(radius=4)})
         self.human_win_container = Container(
             content=gamestats[0], expand=True, alignment=alignment.center
         )
