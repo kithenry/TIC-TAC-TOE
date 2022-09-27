@@ -34,7 +34,7 @@ class App:
 
     """Tic tac toe GUI"""
 
-    def __init__(self, page: Page):
+     def __init__(self, page: Page):
         self.xwins, self.owins, self.numdraws = 0, 0, 0
         self.page = page
         self.game = game_logic.Game(self)
@@ -43,7 +43,7 @@ class App:
         self.row, self.col = None, None
         self.player_x = player_x
         self.player_o = player_o
-        self.board_container = Column(width=600, height=600, spacing=40)
+        self.board_container = Column(width=600, height=600, spacing=5)
         self.main_container = Container(width=580, height=580)
         self.main_column = Column()
         self.row1, self.row2, self.row3 = Row(), Row(), Row()
@@ -86,9 +86,9 @@ class App:
             },
         }
         gamestats = [
-            Text(f"HUMAN: {self.xwins}", font_family="Monospace", size=12),
-            Text(f"DRAW: {self.numdraws}", font_family="Monospace", size=12),
-            Text(f"AI: {self.owins}", font_family="Monospace", size=12),
+            Text(f"HUMAN: {self.xwins}", font_family="Monospace", size=20),
+            Text(f"DRAW: {self.numdraws}", font_family="Monospace", size=20),
+            Text(f"AI: {self.owins}", font_family="Monospace", size=20),
         ]
         # for stat in gamestats:
         #    stat.style = ButtonStyle(shape={"":RoundedRectangleBorder(radius=4)})
@@ -160,14 +160,14 @@ class App:
         self.game.play()
 
     def new_game(self):
-        if self.game_ended:
-            for i in range(3):
-                for j in range(3):
-                    self.board_dict[i][j].image_src_base64 = None
-                    self.board_dict[i][j].update()
-            self.game.player_turn = None
-            self.game.initialize_game()
-            self.game.play()
+            
+        for i in range(3):
+            for j in range(3):
+                self.board_dict[i][j].image_src_base64 = None
+                self.board_dict[i][j].update()
+        self.game.player_turn = None
+        self.game.initialize_game()
+        self.game.play()
 
     def change_image(self, e):
         if (not self.game_ended) and (self.game.player_turn == "X"):
