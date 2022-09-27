@@ -31,7 +31,7 @@ class App:
 
     """Tic tac toe GUI"""
 
-     def __init__(self, page: Page):
+    def __init__(self, page: Page):
         self.xwins, self.owins, self.numdraws = 0, 0, 0
         self.page = page
         self.game = game_logic.Game(self)
@@ -83,9 +83,9 @@ class App:
             },
         }
         gamestats = [
-            Text(f"HUMAN: {self.xwins}", font_family="Monospace", size=20),
-            Text(f"DRAW: {self.numdraws}", font_family="Monospace", size=20),
-            Text(f"AI: {self.owins}", font_family="Monospace", size=20),
+            Text(f"HUMAN: {self.xwins}", font_family="Monospace", size=15),
+            Text(f"DRAW: {self.numdraws}", font_family="Monospace", size=15),
+            Text(f"AI: {self.owins}", font_family="Monospace", size=15),
         ]
         self.human_win_container = Container(
             content=gamestats[0], expand=True, alignment=alignment.center
@@ -155,7 +155,6 @@ class App:
         self.game.play()
 
     def new_game(self):
-            
         for i in range(3):
             for j in range(3):
                 self.board_dict[i][j].image_src_base64 = None
