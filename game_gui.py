@@ -164,7 +164,7 @@ class App:
         self.game.play()
 
     def change_image(self, e):
-        if (not self.game_ended) and (self.game.player_turn == "X"):
+        if (not self.game_ended) and (self.game.player_turn == "X") and (e.control.image_src_base64 not in [self.player_o, self.player_x]):
             e.control.image_src_base64 = self.player_x
             self.row, self.col = e.control.row, e.control.column
             e.control.update()
