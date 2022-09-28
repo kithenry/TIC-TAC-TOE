@@ -91,7 +91,7 @@ class Game:
             for j in range(3):
                 if self.game_state[i][j] == '.':
                     self.game_state[i][j] = 'X'
-                    m, mx, my  = self.max()
+                    m, _, _  = self.max()
                     if m < min_value:
                         min_value, min_x, min_y = m, i, j
                     self.game_state[i][j] = '.'
@@ -115,7 +115,7 @@ class Game:
             for j in range(3):
                 if self.game_state[i][j] == '.':
                     self.game_state[i][j] = 'O'
-                    m, mx, my  = self.min()
+                    m, _, _  = self.min()
                     if m > max_value:
                         max_value, max_x, max_y = m, i, j
                     self.game_state[i][j] = '.'
