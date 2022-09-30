@@ -7,6 +7,6 @@ GUI made using flet library [flutter with python]
 - install flet via `pip install flet`
 - cd into the repo you cloned
 - run `python3 game_gui.py`
-- loose over and over :)
+- lose over and over :)
 
 <img src="images/updated_img.png" />
